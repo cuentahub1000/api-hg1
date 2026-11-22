@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-test/
+cdk/node_modules/
+cdk/cdk.out/
+cdk/cdk.context.json
+.env
+*.tsbuildinfo
+local/lambda.env
+local/secrets.json
+local/dist/
+local/shim.log

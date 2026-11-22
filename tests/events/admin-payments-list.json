@@ -1,0 +1,9 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "query": {
+    "status": "open",
+    "limit": "50"
+  }
+}

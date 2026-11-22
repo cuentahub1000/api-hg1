@@ -1,0 +1,6 @@
+{
+  "headers": {
+    "x-hg-webhook-signature": "sha256=<hmac of body>"
+  },
+  "body": "{\"topic\":\"CHECKOUT\",\"eventType\":\"checkout.completed\",\"id\":\"<checkout id>\",\"status\":\"completed\",\"amount\":\"1500.50\",\"currency\":\"ARS\",\"country\":\"AR\",\"metadata\":{\"paymentId\":\"3f0c0a2e-0000-4000-8000-000000000001\"}}"
+}

@@ -1,0 +1,13 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "path": {
+    "partyId": "<partyId>"
+  },
+  "body": {
+    "kind": "withdrawal",
+    "days": 2,
+    "reason": "Document check in progress"
+  }
+}

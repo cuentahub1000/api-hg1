@@ -1,0 +1,13 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "body": {
+    "amount": 2000,
+    "destination": {
+      "type": "cbu",
+      "value": "0170099220000067797370",
+      "holderName": "Ana Perez"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "path": {
+    "id": "3f0c0a2e-0000-4000-8000-000000000001"
+  },
+  "body": {
+    "note": "Verified with the player"
+  }
+}

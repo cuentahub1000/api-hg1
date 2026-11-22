@@ -1,0 +1,60 @@
+{
+  "name": "api-hg-cdk",
+  "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "api-hg": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "deps": "npm --prefix .. ci",
+    "presynth": "npm run deps",
+    "predeploy:all": "npm run deps",
+    "synth": "cdk synth -c config=${envName:?Set envName=<env> first}",
+    "diff": "cdk diff -c config=${envName:?Set envName=<env> first}",
+    "list": "cdk list -c config=${envName:?Set envName=<env> first}",
+    "deploy:resource-group": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgResourceGroup -c config=$envName",
+    "deploy:database": "cdk deploy ${envName:?Set envName=<env> first}-HgDatabase -c config=$envName",
+    "deploy:deposits-create": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgDepositsCreate -c config=$envName",
+    "deploy:withdrawals-create": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgWithdrawalsCreate -c config=$envName",
+    "deploy:withdrawals-cancel": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgWithdrawalsCancel -c config=$envName",
+    "deploy:payments-list": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgPaymentsList -c config=$envName",
+    "deploy:payments-get": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgPaymentsGet -c config=$envName",
+    "deploy:admin-payments-list": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsList -c config=$envName",
+    "deploy:admin-payments-get": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsGet -c config=$envName",
+    "deploy:admin-payments-approve": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsApprove -c config=$envName",
+    "deploy:admin-payments-reject": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsReject -c config=$envName",
+    "deploy:admin-settings-get": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminSettingsGet -c config=$envName",
+    "deploy:admin-settings-update": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminSettingsUpdate -c config=$envName",
+    "deploy:admin-reconcile": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminReconcile -c config=$envName",
+    "deploy:webhook": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgWebhook -c config=$envName",
+    "deploy:webhook-edge": "cdk deploy ${envName:?Set envName=<env> first}-HgWebhookEdge -c config=$envName",
+    "deploy:migrate": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgMigrate -c config=$envName",
+    "deploy:all": "cdk deploy \"${envName:?Set envName=<env> first}-ApiHg*\" \"${envName}-HgDatabase\" --require-approval never --concurrency 4 -c config=$envName",
+    "migrate": "aws lambda invoke --function-name ${envName:?Set envName=<env> first}-hg-migrate --cli-binary-format raw-in-base64-out --payload '{}' /tmp/hg-migrate.out >/dev/null && cat /tmp/hg-migrate.out && echo",
+    "destroy:functions": "cdk destroy \"${envName:?Set envName=<env> first}-ApiHg*\" --exclusively -c config=$envName",
+    "destroy:all": "cdk destroy --all -c config=${envName:?Set envName=<env> first}",
+    "deploy:admin-payments-cancel": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsCancel -c config=$envName",
+    "deploy:admin-player-get": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPlayerGet -c config=$envName",
+    "deploy:admin-player-limits-update": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPlayerLimitsUpdate -c config=$envName",
+    "deploy:admin-player-block": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPlayerBlock -c config=$envName",
+    "deploy:admin-player-unblock": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPlayerUnblock -c config=$envName",
+    "deploy:admin-payments-resolve": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsResolve -c config=$envName",
+    "deploy:admin-queue-list": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminQueueList -c config=$envName",
+    "deploy:admin-queue-run": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminQueueRun -c config=$envName",
+    "deploy:admin-payments-prioritize": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgAdminPaymentsPrioritize -c config=$envName",
+    "deploy:queue-run": "cdk deploy ${envName:?Set envName=<env> first}-ApiHgQueueRun -c config=$envName"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "aws-cdk": "^2.170.0",
+    "esbuild": "^0.21.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.170.0",
+    "constructs": "^10.4.0",
+    "source-map-support": "^0.5.21"
+  }
+}

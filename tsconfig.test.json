@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": false, "outDir": "dist-test", "sourceMap": true },
+  "include": ["lambdas/**/*.ts", "server/**/*.ts", "tests/**/*.ts"]
+}

@@ -1,0 +1,8 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "path": {
+    "partyId": "<partyId>"
+  }
+}

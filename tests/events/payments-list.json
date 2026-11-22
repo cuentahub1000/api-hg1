@@ -1,0 +1,9 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "query": {
+    "kind": "deposit",
+    "limit": "20"
+  }
+}

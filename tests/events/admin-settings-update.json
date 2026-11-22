@@ -1,0 +1,10 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "body": {
+    "holdWithdrawals": true,
+    "holdDepositsAbove": 100000,
+    "maxOpenWithdrawals": 1
+  }
+}

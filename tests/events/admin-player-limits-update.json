@@ -1,0 +1,14 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "path": {
+    "partyId": "<partyId>"
+  },
+  "body": {
+    "maxWithdrawal": 50000,
+    "dailyWithdrawalMax": 100000,
+    "monthlyDepositMax": null,
+    "note": "VIP review pending"
+  }
+}

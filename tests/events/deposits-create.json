@@ -1,0 +1,13 @@
+{
+  "headers": {
+    "authorization": "Bearer <jwt>"
+  },
+  "body": {
+    "amount": 1500.5,
+    "payer": {
+      "document": "30123456",
+      "name": "Ana Perez",
+      "email": "ana@example.com"
+    }
+  }
+}
